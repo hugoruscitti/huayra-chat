@@ -9,7 +9,6 @@
 
     <!-- AGREGADOS PARA NODEWEBKIT -->
     <script src='reemplazar-require-paso-1.js'></script>
-    <script src='capturar-excepciones.js'></script>
 
     {{content-for 'head'}}
 
@@ -17,8 +16,21 @@
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/node-webkit-ember-seed.css">
 
+    <script>
+
+var gui  = require('nw.gui');
+  win = gui.Window.get();
+  var nativeMenuBar = new gui.Menu({ type: "menubar" });
+  try {
+    nativeMenuBar.createMacBuiltin("My App");
+      win.menu = nativeMenuBar;
+      } catch (ex) {
+      console.log(ex.message);
+      }
+    </script>
+
   </head>
-  <body>
+  <body onload="process.mainModule.exports.onLoad(window)">
     {{content-for 'body'}}
 
     <script src="assets/vendor.js"></script>

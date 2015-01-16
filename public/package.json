@@ -1,7 +1,8 @@
 {
-  "main": "app://localhost/index.html",
+  "node-main": "blabla.js",
   "name": "node-webkit-ember-seed",
   "version": "0.0.1",
+  "main": "index.html",
   "window": {
     "title": "node-webkit-ember-seed",
     "width": 800,
